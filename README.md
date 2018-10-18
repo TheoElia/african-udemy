@@ -1,7 +1,9 @@
 # AFRICAN - UDEMY
-A public place for Ghanaian students to learn about I.T And Programming
+A public place for African students to learn about Computer Science,I.T And Programming.
+It gives students basic to core programming in modern programming languages,it also helps students to aquire 
+Advance level in computer science and I.T
 
-# KNOWLEGES REQUIRED
+# KNOWLEDGES REQUIRED
 .PHP
 .JS
 .JQUERY
@@ -14,4 +16,4 @@ A public place for Ghanaian students to learn about I.T And Programming
  . Comment And Indent Your Codes
  
 # WHO CAN PARTICIPAGE
-EVERYONE IS INVITED TO PARTICIPATE IN THE CODING.
+Anyone with the knowledge of web and web-application designs can join.
