@@ -15,5 +15,5 @@ Advance level in computer science and I.T
  . Commit Your Changes Before Pushing
  . Comment And Indent Your Codes
  
-# WHO CAN PARTICIPAGE
+# WHO CAN PARTICIPATE
 Anyone with the knowledge of web and web-application designs can join.
