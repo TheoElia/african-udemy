@@ -1,0 +1,43 @@
+<p>
+                        <h4>What are Boolean Values?</h4>
+Python uses <code>bool</code> value to express true or false values. Booleans  values are only two, <code>True</code> and <code>False</code>
+Boolean value is named after a British Mathematician called George Boole,  George Boole created Boolean Algebra, which is the basis of all modern computer arithmetic.
+In Python, boolean values are <code>True</code> and <code>False</code>, take notice of the capitalization because <code>true</code> and <code>false</code>
+are not boolean values and therefore will throw an error.
+The boolean values <code>True</code> and <code>False</code> are not quoted like strings, which means Python recognises them written
+raw like that.
+<h4>Boolean Expressions</h4>
+These are Python expressions or "calculations" that return a boolean value (True or False).
+Expressions that use comparison operators return boolean value as a result.
+For example, If this were put to you: 3 is greater than 2, your response will not be a number like 5 because we are comparing.
+You will probably say: "That's not true (False)".
+But an expression like: 3 + 2 should nt yield a true or false answer but another number.
+
+So basically, when you write a boolean expression, you should expect True or False and based on the boolean value returned,
+you can continue your program or stop or branch.
+<div style="padding:16px;
+     border:solid 2px steelblue;
+     background-color:#82daad;
+     border-radius:20px;"><center><h5>TIP</h5></center>
+    if statements are boolean expressions also, because they check if a condition is <code>True</code> or <code>False</code>. If statements however,
+    might not return a True or False value but will execute the code under the "if condition" if the condition evaluates to true and will
+    execute the code under the "else condition" if the condition is false.
+    Loops also rely on boolean values to execute. In fact, conditional expressions depend on boolean values to execute.
+</div>
+<h4>Examples</h4>
+Copy and run the following code, it might help in understanding the boolean concept
+<pre>
+    print(type(True))
+    print(type("False"))
+    print(3 > 2)
+    print(5==5)
+    print(6>=6)
+    if 5 > 6:
+    #what gets printed should the above expression be True
+        print("Yes, 5 is greater")
+    #What gets printed when the above expression is False
+    else:
+        print("Nope, 5 is not greater")
+</pre>
+
+</p>
