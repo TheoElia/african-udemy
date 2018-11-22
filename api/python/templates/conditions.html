@@ -1,0 +1,98 @@
+<p>
+
+                        Most of our daily activities are based on conditions. "I will go to the grocery when or if the rain
+stops", "This team can only win the world cup if it beats the other team in the finals."
+Sometimes, the conditions maybe more than one; "this team will win the world cup if it wins
+in the semi finals AND in the finals."
+Other times the condition maybe either this or that; "Nigeria will be through to the next stage
+if they win OR draw their next match."
+In each case, something happens when then condition given occurs (becomes true); "this team will win the world cup"
+and another thing hapens when the condition given does not occur (becomes false);"this team will not win the world cup".
+
+<h4>if,elif and else</h4>
+Computer programming allows for specifying conditions that will be checked before executing a particular code.
+Python uses <code> if, elif ,else </code> to check for conditions before executing a particular code.
+You can therefore place your code under a certain condition which is to be checked by the interpreter
+before executing the code.
+<h4>The Syntax</h4>
+<ol>
+    <li>Bring the beginning condition clause (if, elif, else) and then place the condition to be
+    evaluated just a space after the if or elif (else does not take a condition)</li>
+    <li>Use comparison operators (<, >, ==,..) when neccessary</li>
+    <li>If there are more than one conditions to be evaluated, then bring the appropriate logical operator (and/or)</li>
+    <li>Bring a colon(:) and then move to the next line and tab (or move four spaces to the right)</li>
+    <li>Specify what should happen is if the condition becomes true</li>
+    <li>use else or elif to specify what should happen if the previous condition is false</li>
+</ol>
+
+The following example should set the pace:
+This programs checks the current value of temperature named temp and tells the user what
+the weather outside should be. Feel free to copy and paste the code in your editor.
+Play around it.(The hash (#) is used to comment in Python code:
+The interpreter therefore ignores words that come after a #.
+
+<pre>
+    #Takes temperature value as input from user
+    temp = input("Enter the current temperature value:")
+    #Converts and updates temp value from string to an integer
+    temp = int(temp)
+    #checks if temp is greater than 30
+    if temp > 30:
+        print("Its hot outside")
+    #checks if temp is equal to 30
+    elif temp == 30:
+        print("It should be a normal weather")
+    #checks if temp is less than 30 AND greater than 15
+    #Both must be true for the code (print("The weather is cold"))
+    #To execute
+    elif temp < 30 and temp > 15:
+        print ("The weather is cold")
+    else:
+        print("it's freezing out there")
+</pre>
+<h4>Nested Conditions</h4>
+These are conditions that depend on other conditions to evaluate their own statements.
+Consider this:
+Go to my house (number 13) and check if my Dad or Mom is home and then
+give the money to my Dad. but if my Dad is not home, you could give it to my mom.
+if none of the two is home, bring back my money to me.
+And return my money if you do not find my house.
+
+You realize that you would have by passed a lot of houses on your way to my house
+because they do not bear the number 13.
+This condition has to be first fulfilled before you look for my dad or mom and give out
+the money.
+So giving out the money to my dad or mom depends on whether you found my house or not.
+
+Let us write a simple Python program to illustrate this idea:
+<pre>
+    #Takes house number as input and converts to integer on the same line
+    house = int(input("Enter house number"))
+
+    #First condition to check if house number is 13
+    if house == 13:
+        #After house number is 13, checks if dad or mom is home
+        #Takes Yes or No as input representing the presence of dad or mom
+        dad_or_mom = input("Is Dad or Mom Home: Yes/No:")
+        if dad_or_mom == 'Yes':
+            print("Give this money to him or her")
+        #If mom or dad is not home
+        else:
+            print("I found the house but neither dad nor mom was home")
+    #If house number is not 13
+    else:
+        print("I could not find the house")
+</pre>
+<br>
+After running and trying out a few inputs, you will notice that the option that asks if dad or mom
+is home is never shown except if the house number is 13.
+This means that you do not ask the question "Is mom or dad home?" if you have not found the house
+you were sent to (number 13).<br>
+<div style="padding:8px;border-radius:20px;border:solid 2px steelblue;background-color:#82daad;">
+    <center><h5 style="color:steelblue;">TIP</h5></center>
+    Remember to always make your program as practical as possible, this helps you understand
+    how the computer "thinks" while running your code and if you understand how the computer "thinks"
+    then you can manipulate it as much as possible.
+</div>
+
+</p>
