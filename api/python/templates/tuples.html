@@ -1,0 +1,207 @@
+<p>The rules applied to sample codes are as follows (its only one):<br>
+<strong>The syntax used is that of Python 3 but whenever there is a difference in the syntax of Python 3 and 2, it will be stated
+for beginners to quickly learn the differences between the two versions without having to read any other material on that.</strong><br>
+With that in mind, let's Python.<br>
+<br>
+    <br>
+<h3>Python Tuples</h3><br>
+A <strong>tuple</strong> is a sequence of immutable Python objects. Tuples are sequences, just like lists.
+The only difference is that tuples can't be changed i.e., tuples are
+immutable and tuples use parentheses and lists use square brackets.<br>
+
+Creating a tuple is as simple as putting different comma-separated values and optionally you can put these comma-separated values between parentheses also. For example:<br>
+<pre>
+<strong>tup1</strong> = ('physics', 'chemistry', 1997, 2000)<br>
+<strong>tup2</strong> = (1, 2, 3, 4, 5 )<br>
+<strong>tup3</strong> = "a", "b", "c", "d"<br>
+</pre>
+The empty tuple is written as two parentheses containing nothing:<br>
+
+<strong>tup1</strong> = ();<br>
+To write a tuple containing a single value you have to include a comma, even though there is only one value:<br>
+<br>
+<strong>tup1</strong> = (50,);<br>
+Like string indices, tuple indices start at 0, and tuples can be sliced, concatenated and so on.<br>
+<br>
+    <br>
+    <div style="padding:16px;background-color:#82daad;border-radius:20px;border:solid steelblue 3px;">
+        <h5 style="color:steelblue">Note</h5>
+        The syntax used in the following examples is of Python2.x. Print statements in Python2.x ignore parenthesis and in order to print a
+        next line on the same line a comma is used after the first print value. For example: <br><code>print "value of x,y:",print 1,2</code><br>
+        This should print: <br><code>value of x,y : 1 2</code>
+    </div>
+<h3>Accessing Values in Tuples:</h3><br>
+To access values in tuple, use the square brackets for slicing along with the index or indices to obtain value available at that index. Following is a simple example:<br>
+
+
+<pre>
+<code>
+<strong>tup1</strong> = ('physics', 'chemistry', 1997, 2000)
+<strong>tup2</strong> = (1, 2, 3, 4, 5, 6, 7 )
+
+print "tup1[0]: ", tup1[0]
+print "tup2[1:5]: ", tup2[1:5]
+</code>
+</pre>
+When the above code is executed, it produces the following result:
+    <pre>
+<code>
+<strong>tup1[0]</strong>:  physics
+<strong>tup2</strong>[1:5]:  [2, 3, 4, 5]
+</code>
+</pre>
+<br>
+    <br>
+<h3>Updating Tuples:</h3><br>
+Tuples are immutable which means you cannot update or change the values of tuple elements.<br>
+You are able to take portions of existing tuples to create new tuples as the following example demonstrates:<br>
+<pre>
+#!/usr/bin/python<br>
+<br>
+tup1 = (12, 34.56);<br>
+tup2 = ('abc', 'xyz');<br>
+</pre>
+# Following action is not valid for tuples<br>
+# <strong>tup1[0]</strong> = 100;<br>
+<br>
+# So let's create a new tuple as follows<br>
+    <pre>
+<strong>tup3</strong> = <strong>tup1</strong> + <strong>tup2</strong>;<br>
+print <strong>tup3</strong>;<br>
+    </pre>
+When the above code is executed, it produces the following result:<br>
+<pre>
+(12, 34.56, 'abc', 'xyz')
+</pre>
+    <br>
+    <br>
+<h3>Delete Tuple Elements:</h3><br>
+Removing individual tuple elements is not possible. There is, of course,
+nothing wrong with putting together another tuple with the undesired elements discarded.<br>
+
+To explicitly remove an entire tuple, just use the del statement. Following is a simple example:<br>
+
+#!/usr/bin/python<br>
+<pre><strong>
+tup = ('physics', 'chemistry', 1997, 2000);
+
+print tup;
+del tup;
+print "After deleting tup : "
+print tup;
+</strong></pre>
+This will produce following result. Note an exception raised, this is because after del tup tuple does not exist any more:<br>
+
+    <pre>('physics', 'chemistry', 1997, 2000)</pre><br>
+After deleting tup :<br>
+Traceback (most recent call last):
+<pre>
+  File "test.py", line 9, in
+    print tup;
+</pre>
+NameError: name 'tup' is not defined
+    <br>
+    <br>
+<h3>Basic Tuples Operations:</h3><br>
+Tuples respond to the <strong>+</strong> and <strong>*</strong> operators much like strings; they mean concatenation and repetition here too, except that the result is a new tuple, not a string.<br>
+
+In fact, tuples respond to all of the general sequence operations we used on strings in the prior chapter :<br>
+<table border="2">
+<tr>
+    <th>Python Expression</th>
+    <th>Results	Description</th>
+</tr>
+<tr>
+<td>len((1, 2, 3))	3</td>
+<td>Length</td>
+</tr>
+<tr>
+<td>(1, 2, 3) + (4, 5, 6)	(1, 2, 3, 4, 5, 6)</td>
+<td>Concatenation</td>
+</tr>
+<tr>
+<td>('Hi!',) * 4	('Hi!', 'Hi!', 'Hi!', 'Hi!')</td>
+<td>Repetition</td>
+</tr>
+<tr>
+<td>3 in (1, 2, 3)	True</td>
+<td>Membership</td>
+</tr>
+<tr>
+<td>for x in (1, 2, 3): print x,	1 2 3</td>
+<td>Iteration</td>
+</tr>
+</table>
+<br>
+    <br>
+<h3>Indexing, Slicing, and Matrices:</h3><br>
+Because tuples are sequences, indexing and slicing work the same way for tuples as they do for strings. Assuming following input:<br>
+<pre>
+L = ('spam', 'Spam', 'SPAM!')<br>
+</pre>
+<br>
+<table border="2">
+<tr>
+    <th>Python Expression</th>
+    <th>Results	</th>
+    <th>Description</th>
+</tr>
+<tr>
+<td>L[2]</td>
+<td>'SPAM!'</td>
+<td>Offsets start at zero</td>
+</tr>
+<tr>
+<td>L[-2]</td>
+<td>'Spam'</td>
+<td>Negative: count from the right</td>
+</tr>
+<tr>
+<td>L[1:]</td>
+<td>['Spam', 'SPAM!']</td>
+<td>Slicing fetches sections</td>
+</tr>
+</table>
+    <br>
+    <br>
+
+    <h3>No Enclosing Delimiters:</h3><br>
+Any set of multiple objects, comma-separated, written without identifying symbols, i.e., brackets for lists, parentheses for tuples, etc., default to tuples, as indicated in these short examples:<br>
+<br>
+    <pre>
+#!/usr/bin/python<br>
+<br>
+
+print 'abc', -4.24e93, 18+6.6j, 'xyz';<br>
+x, y = 1, 2;<br>
+print "Value of x , y : ", x,y;<br>
+</pre>
+When the above code is executed, it produces the following result:<br>
+<pre>
+abc -4.24e+93 (18+6.6j) xyz
+Value of x , y : 1 2
+</pre>
+    <br>
+    <br>
+    <h3>Built-in Tuple Functions:</h3><br>
+Python includes the following tuple functions:<br>
+
+<h5>SN	Function with Description</h5><br>
+<ol>
+    <li><pre><strong>	.cmp(tuple1, tuple2)</strong><br>
+    Compares elements of both tuples.</pre></li>
+
+    <li> <pre><strong>	.len(tuple)</strong><br>
+    Gives the total length of the tuple.</pre></li>
+
+    <li><pre><strong>	.max(tuple)</strong><br>
+    Returns item from the tuple with max value.</pre></li>
+
+    <li><pre><strong>	.min(tuple)</strong><br>
+    Returns item from the tuple with min value.</pre></li>
+
+    <li><pre><strong>	.tuple(seq)</strong><br>
+    Converts a list into tuple.</pre></li>
+</ol>
+</p>
+ 
