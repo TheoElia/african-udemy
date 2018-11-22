@@ -1,0 +1,434 @@
+                    <p>
+
+Let's get an introduction to strings.
+
+Strings are always chain of characters bounded by triple, double quotes or single quotes in Python,
+a string can also be just a character.
+
+<pre>
+"Hello World"
+"12345"
+"False"
+'my mom is going to school'
+Are all strings.</pre>
+
+In order to tell the computer to output a string to the screen,
+just write out *print* and between your parenthesis/brackets, type your string.
+This applies to all the data types we will look at.
+
+<h5>Accessing Strings</h5>
+
+To obtain substrings, indexing or slicing is used. Square brackets are used and the position (index) of the substring or substrings is
+entered within the square brackets; Python then returns the substring or substrings found at this index.
+
+Put this behind your mind, Python treats strings as lists when it comes to
+slicing and indexing.
+
+Let's look at a practical example:
+
+From our previous lesson Variable Naming, let's give our fourth string example a name and
+then work on it using indexing and slicing.
+
+<pre><code> sentence = 'my mom is going to school'</code></pre>
+NB: I gave it the name sentence which is reasonable enough for what the string says.
+
+This string which we have just given the name sentence has a length not equal to the number of
+letter in it but every character counts. Space is also a character, so guess what the length or number of characters in it will be.
+
+We can easily do this by using a method called len on the string sentence.
+<pre>
+<code>print(len(senetence))</code>
+This should print out:
+>> 25</pre>
+
+Now, say we want to get only the first letter of the sentence, what do we do.
+
+A knowledge of how Python numbers the position of each substring is therefore required.
+<div>
+<div style="border:solid steelblue 3px;padding:16px;border-radius:20px;background-color:#82daad;">
+<blockquote>
+                      <span class="fa fa-quote-left"></span>
+                      How Python gives indices:
+Python gives the first letter in a string the position(index) 0 and the next 0+1 = 1 and the next 0+1+1=2
+and it continues so.
+Since the first letter is not 1 that means our string's last member will have the index 24, this can also be accessed
+using the index -1.
+This means when counting from left to right, Python starts from 0 but when counting from right to left Python begins from -1,-2 till it gets to
+the first.
+Look at the image below:
+                    </blockquote></div>
+                    <div>
+
+                        <a class="blog_img" href="#">
+                          <img src="static/img/string.png" alt="img">
+                          <br>
+                         <small> Fig.1.0: forward indexing and backward indexing.(credit: javapoint.com)</small>
+                        </a>
+
+                    </div>
+</div>
+<br>
+
+Back to our problem, we want to get the first letter of the string called sentence.
+
+We use square brackets just after the string or the string's name and put the index of the letter we waant
+between the square brackets:
+<pre>
+<code>print(sentence[0])</code></pre>
+This should print out the first letter 'm' to the screen for you.
+
+So with that you can get any of the letters from the string, but what if you put in 25?
+
+Our string *ranges* from 0-24 so putting in 25 will
+mean you are asking for a letter that is
+not in the string and therefore out of the range.
+This will raise an error which we shall learn to handle.
+
+Another problem:
+What if we wanted to get 'mom' or any other word from the string.
+
+Here comes slicing, we specify the beginning index (that is, where we want Python to put the knife first), separated by a colon(:) and
+the last index (not inclusive), that is the border. All this should hapen in the square brackets.
+
+So to get 'mom' printed out from 'my mom is going to school':
+The first 'm' standds at index 3 and the last 'm' stands at index 5, but we want it to be included so we give the next
+index as the border (which is 6).
+
+<pre><code>print(sentence[3:6])</code>
+
+This should print out
+<code>>> mom</code></pre>
+
+<h5>STRING OPERATIONS</h5>
+
+If you want Python to begin slicing the list from the beginning, you do not need to begin with 0,
+you can begin like this:
+<pre><code>print(sentence[ :6]))</code>
+
+This should print out:
+>> my mom
+</pre>
+The same way if you want Python to begin from somewhere say after 'mom' to the very last
+letter, then you can do this:
+<pre><code>print(senetence[6: ])</code>
+
+This should give you:
+>> is going to school
+</pre>
+Skipping some substrings
+
+You can also specify steps at which Python should slice a list using a third index called the step.
+
+So generally, to slice a string:
+<pre>
+<code>ListName[begin:end:step]</code>
+
+<code>print(sentence[ : : 2])</code>
+</pre>
+ This means Python should print the first letter, jump to the next 2 and print that and jump
+ to the next 2 and should continue to do so until it gets to the end.
+
+ This will be very useful when working with lists like a list off ccounting numbers
+ and you want to get only even numbers or odd numbers.
+
+<h5>STRING METHODS</h5>
+
+Strings can further be manipulated using mathematical operations and built-in method.
+
+You can attach two strings together by using the + operator:
+<pre>
+<code>'my mom is '+'going to school'</code>
+will produce (Please note the space at the end of 'is'):
+>> my mom is going to school
+
+You can also repeat a string using the * operator:
+<code>'my mom ' * 3</code>
+Should produce:
+>> my mom my mom my mom
+
+To find out if a character or characters ooccur in a string, you could use *in* or *not in* keywords:
+
+This will be better understood under conditioning your code section. But for now:
+
+<code>
+if 'm' in sentence:
+    print("m exists")
+else:
+    print("nope, no m")
+    </code></pre>
+    </p>
+    <p>Python also provides built-in methods that can be used
+    to manipulate strings in other ways.
+
+These methods are called on the string in question and if arguments are
+required for the method to properly execute,
+you provide those arguments.
+You must call the string and then bring a dot(.) and the name of the method after
+which comes paranthesis or round brackets in
+which arguments are provided if any. The paranthesis are still
+brought even if there were no arguments to provide.
+<pre>
+1. .capitalize()
+This will capilize the first letter of the string.
+
+2. .center(width,filchar)
+Returns a space-padded string with the original
+string centered to a total of width given.
+
+3. .count(substring,begin=0,end=len(string))
+This counts how many times a substring occurs within the original string.
+You can specify where Python should start looking from
+using the begin argument and the end, where Python should stop looking.
+These two howver default to begin being the start and end being the end
+of the string.
+
+
+4	.decode(encoding='UTF-8',errors='strict')
+Decodes the string using the codec registered for encoding.
+encoding defaults to the default string encoding.
+
+5	.encode(encoding='UTF-8',errors='strict')
+Returns encoded string version of string; on error, default is to raise a
+ValueError unless errors is given with 'ignore' or 'replace'.
+
+6	.endswith(suffix, beg=0, end=len(string))
+Determines if string or a substring of string (if starting
+index beg and ending index end are given) ends with suffix;
+returns true if so and false otherwise
+
+7	.expandtabs(tabsize=8)
+Expands tabs in string to multiple spaces;
+defaults to 8 spaces per tab if tabsize not provided
+
+8	.find(str, beg=0 end=len(string))
+Determine if str occurs in string or in a substring
+of string if starting index beg and ending index end
+are given returns index if found and -1 otherwise
+
+9	.index(str, beg=0, end=len(string))
+Same as find(), but raises an exception if str not found
+
+10	.isalnum()
+Returns true if string has at least 1 character and
+all characters are alphanumeric and false otherwise
+</pre>
+<pre>
+11	.isalpha()
+Returns true if string has at least 1 character and
+all characters are alphabetic and false otherwise
+
+12	.isdigit()
+Returns true if string contains only
+digits and false otherwise
+
+13	.islower()
+Returns true if string has at least 1 cased
+character and all cased characters are in lowercase and false otherwise
+
+14	.isnumeric()
+Returns true if a unicode string contains only
+numeric characters and false otherwise
+
+15	.isspace()
+Returns true if string contains only whitespace
+characters and false otherwise
+
+16	.istitle()
+Returns true if string is properly "titlecased" and false otherwise
+
+17	.isupper()
+Returns true if string has at least one cased
+character and all cased characters are
+in uppercase and false otherwise
+
+18	.join(seq)
+Merges (concatenates) the string representations of elements
+in sequence seq into a string, with separator string
+
+19	.len(string)
+Returns the length of the string
+
+20	.ljust(width[, fillchar])
+Returns a space-padded string with the original
+string left-justified to a total of width columns
+</pre>
+<pre>
+21	.lower()
+Converts all uppercase letters in string to lowercase
+
+22	.lstrip()
+Removes all leading whitespace in string
+
+23	.maketrans()
+Returns a translation table to be used in translate function.
+
+24	.max(str)
+Returns the max alphabetical character from the string str
+
+25	.min(str)
+Returns the min alphabetical character from the string str
+
+26	.replace(old, new [, max])
+Replaces all occurrences of old in string with new or
+at most max occurrences if max given
+
+27	.rfind(str, beg=0,end=len(string))
+Same as find(), but search backwards in string
+
+28	.rindex( str, beg=0, end=len(string))
+Same as index(), but search backwards in string
+
+29	.rjust(width,[, fillchar])
+Returns a space-padded string with the original string
+right-justified to a total of width columns.
+
+30	.rstrip()
+Removes all trailing whitespace of string
+</pre>
+<pre>
+31	.split(str="", num=string.count(str))
+Splits string according to delimiter str
+(space if not provided) and returns list of
+substrings; split into at most num substrings if given
+
+32	.splitlines( num=string.count('\n'))
+Splits string at all (or num) NEWLINEs and
+returns a list of each line with NEWLINEs removed
+
+33	.startswith(str, beg=0,end=len(string))
+Determines if string or a substring of string
+(if starting index beg and ending index end are given)
+starts with substring str; returns true
+if so and false otherwise
+
+34	.strip([chars])
+Performs both lstrip() and rstrip() on string
+
+35	.swapcase()
+Inverts case for all letters in string
+
+36	.title()
+Returns "titlecased" version of string, that is, all
+words begin with uppercase and the rest are lowercase
+
+37	.translate(table, deletechars="")
+Translates string according to translation
+table str(256 chars), removing
+those in the del string
+
+38	.upper()
+Converts lowercase letters in string to uppercase
+
+39	.zfill (width)
+Returns original string leftpadded with zeros
+to a total of width characters; intended for numbers,
+zfill() retains any sign given (less one zero)
+
+40	.isdecimal()
+Returns true if a unicode string contains
+only decimal characters and false otherwise
+</pre>
+
+<h5>String Formatting</h5>
+
+One of Python's coolest features is the string format operator %.
+This operator is unique to strings and makes up for the pack of having functions
+from C's printf() family. Following is a simple example:
+
+
+
+<pre><code>print ("My name is %s and weight is %d kg!") % ('Ellie', 60)</code>
+
+When the above code is executed, it produces the following result:
+
+>>My name is Ellie and weight is 60 kg!
+</pre>
+Here is the list of complete set of symbols which can be used along with %:
+
+<pre>
+Symbol	Functionality
+
+*	argument specifies width or precision
+
+-	left justification
+
++	display the sign
+
+<sp>	leave a blank space before a positive number
+
+#	add the octal leading zero ( '0' ) or hexadecimal
+leading '0x' or '0X', depending on whether 'x' or 'X' were used.
+0	pad from left with zeros (instead of spaces)
+
+%	'%%' leaves you with a single literal '%'
+
+(var)	mapping variable (dictionary arguments)
+
+m.n.	m is the minimum total width and n is the number
+of digits to display after the decimal point (if appl.)
+</pre>
+<h5>TRIPPLE QUOTES</h5>
+
+Python's triple quotes comes to the rescue by allowing strings to span multiple lines,
+including verbatim NEWLINEs, TABs, and any other special characters.
+
+The syntax for triple quotes consists of three consecutive single or double quotes.
+<pre>
+<code>
+para_str = """this is a long string that is made up of
+several lines and non-printable characters such as
+TAB ( \t ) and they will show up that way when displayed.
+NEWLINEs within the string, whether explicitly given like
+this within the brackets [ \n ], or just a NEWLINE within
+the variable assignment will also show up.
+"""
+print (para_str)</code>
+When the above code is executed, it produces the following result.
+Note how every single special character has been converted to its printed form,
+right down to the last NEWLINE at the end of the string between the "up."
+and closing triple quotes.
+
+Also note that NEWLINEs occur either with an explicit carriage return
+at the end of a line or its escape code (\n):
+<code>
+this is a long string that is made up of
+several lines and non-printable characters such as
+TAB (    ) and they will show up that way when displayed.
+NEWLINEs within the string, whether explicitly given like
+this within the brackets [
+ ], or just a NEWLINE within
+the variable assignment will also show up.
+Raw strings don't treat the backslash as a special character at all.
+Every character you put into a raw string stays the way you wrote it:
+</code>
+
+
+<code>print ('C:\\nowhere')</code>
+When the above code is executed, it produces the following result:
+
+<code>>>C:\nowhere</code>
+
+Now let's make use of raw string.
+We would put expression in r'expression' as follows:
+
+
+
+<code>print (r'C:\\nowhere')</code>
+When the above code is executed, it produces the following result:
+
+<code>>>C:\\nowhere</code>
+</pre>
+
+<h5>UNICODE STRINGS</h5>
+Normal strings in Python are stored internally as 8-bit ASCII,
+while Unicode strings are stored as 16-bit Unicode. This allows for a more varied set of characters,
+including special characters from most languages in the world. I'll restrict my treatment of Unicode strings to the following:
+
+<pre>
+<code>print (u'Hello, world!')</code>
+When the above code is executed, it produces the following result:
+
+<code>>>Hello, world!</code>
+</pre>
+As you can see, Unicode strings use the prefix u, just as raw strings use the prefix r.
+</p>
