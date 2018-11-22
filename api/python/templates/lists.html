@@ -1,0 +1,217 @@
+ <p>
+                        Python's list is another datatype that can be used to keep other basic datatypes
+in a fairly organised manner. This is because members of a list
+are given position numbers by the Python interpreter and therefore
+can be accessed using their positions called indexes. A list is therefore a squence.
+
+To define a python list:
+listname = [first_member,second_member,...]
+
+These members can be any of the following datatypes:
+<pre>
+Boolean
+Number
+String
+List
+Tuple
+Dictionary
+</pre>
+<br>
+
+<h4>List Indexing</h4>
+Python assigns integers to the position of the members in the list.
+The first_member gets the index 0, the second_member gets the
+index 1 and so on Python adds 1 to the previous index to get the index
+of the current member.Since a list can contain a lot of members at once, the last
+member is referenced -1 to make it easier to access.
+<br>
+<h4>Indexing Vs. Slicing Lists</h4>
+When you create a list in python, python gives a position number to each item in the list depending on
+where it appears in the list, the numbering is done
+from 0 to the last item (n-1), where n is the number if items in the list.
+So, if there are 10 items in a list, the first item will take position(index) 0 and the last item will take (10-1) = 9.
+
+You can therefore request Python to give you a particular item from the list by specifying it's index to Python - indexing
+
+You can also ask Python to give you items from a certain point to a certain point,
+you can even specify if Python should jump over particular ones, this is called list slicing.
+
+
+<h4>The Program</h4>
+<pre>
+My_list = ['hello', 2,3.6,True]
+
+#Let's call print
+print(My_list)
+
+#Now let's specify some index
+print(My_list[3])
+
+#This should print the
+#fourth item in the
+#list which is at index 3.
+
+#Now let's slice
+
+print(My_list[0:3])
+
+#This should print from the first
+#item to the third item,
+#leaving out the one at
+#index 3
+</pre>
+
+
+<br>
+
+When you want Python to print from the beginning of the list, you don't need to specify the 0, just do this list_name [ : end index here].
+
+If you want Python to print out every member of the list but at a certain step, then do this:
+list_name[ : :step]
+
+If your step was 2, then Python will print the first item and jump to the third and jump to the fifth,
+that's a smart way print out odd number is your list is made of counting numbers.
+
+You can simply ask for a reverse list by making your step -1,
+this will tell Pytjon to print the last item first and go backwards.
+
+Like this:
+
+<pre>list_name[ : : -1]</pre>
+
+
+Python should print out a reverse list.
+
+<div style="border:solid steelblue 3px;padding:16px;border-radius:20px;background-color:#82daad;">
+<h5 style="color:steelblue;">Try it Out <i class="fa fa-free-code-camp"></i></h5>
+Create a list of counting numbers from 0 to 21, extract a reverse of even numbers from it.
+Python should print out a reverse list.
+</div>
+
+
+
+<h4>Updating Lists</h4>
+You can update single or multiple elements of lists by giving the slice on
+the left-hand side of the assignment operator, and you can add to elements
+in a list with the append() method. Following is a simple example:
+
+<pre>
+list = ['physics', 'chemistry', 1997, 2000];
+
+print ("Value available at index 2 : ",list[2])
+
+list[2] = 2001
+print ("New value available at index 2 : ",list[2])
+</pre>
+
+When the above code is executed, it produces the following result:
+<pre>
+Value available at index 2 : 1997
+New value available at index 2 : 2001
+</pre>
+
+<h4>Delete List Elements</h4>
+To remove a list element, you can use either the del statement if you know exactly which element(s)
+you are deleting or the remove() method if you do not know. Following is a simple example:
+
+
+<pre>list1 = ['physics', 'chemistry', 1997, 2000];
+
+>>print (list1)
+>>del list1[2]
+print ("After deleting value at index 2 : ",list1;)
+</pre>
+When the above code is executed, it produces following result:
+<pre>
+['physics', 'chemistry', 1997, 2000]
+After deleting value at index 2 :
+['physics', 'chemistry', 2000]
+</pre>
+<br>
+
+<h4>Basic List Operations</h4>
+Lists respond to the + and * operators much like strings; they mean concatenation
+and repetition here too, except that the result is a new list, not a string.
+
+In fact, lists respond to all of the general sequence operations we used on strings in the Strings section.
+<br>
+<pre>
+Python Expression	               Results	                Description
+len([1, 2, 3])	                       3                	Length
+[1, 2, 3] + [4, 5, 6]	        [1, 2, 3, 4, 5, 6]	        Concatenation
+['Hi!'] * 4	                ['Hi!', 'Hi!', 'Hi!', 'Hi!']	Repetition
+3 in [1, 2, 3]	                       True	                Membership
+for x in [1, 2, 3]: print x,	       1 2 3	            Iteration
+</pre>
+<br>
+<h4>Indexing, Slicing, and Matrixes</h4>
+Because lists are sequences, indexing and slicing work the same way for lists as they do for strings.
+
+Assuming following input:
+<br>
+<pre>
+L = ['spam', 'Spam', 'SPAM!']
+
+
+Python Expression       	Results         	Description
+
+L[2]                        'SPAM!'         	    Offsets start at zero
+
+L[-2]	                    'Spam'	            Negative: count from the right
+
+L[1:]	                ['Spam', 'SPAM!']	    Slicing fetches sections
+
+</pre>
+<br>
+<h4>Built-in List Functions & Methods</h4>
+
+Python includes the following list functions:
+<br>
+<pre>
+SN	Function with Description
+
+1	cmp(list1, list2)
+Compares elements of both lists.
+
+2	len(list)
+Gives the total length of the list.
+
+3	max(list)
+Returns item from the list with max value.
+
+4	min(list)
+Returns item from the list with min value.
+
+5	list(seq)
+Converts a tuple into list.
+Python includes following list methods
+
+SN	Methods with Description
+1	list.append(obj)
+Appends object obj to list
+
+2	list.count(obj)
+Returns count of how many times obj occurs in list
+
+3	list.extend(seq)
+Appends the contents of seq to list
+
+4	list.index(obj)
+Returns the lowest index in list that obj appears
+
+5	list.insert(index, obj)
+Inserts object obj into list at offset index
+
+6	list.pop(obj=list[-1])
+Removes and returns last object or obj from list
+
+7	list.remove(obj)
+Removes object obj from list
+
+8	list.reverse()
+Reverses objects of list in place
+
+9	list.sort([func])
+Sorts objects of list, use compare func if given
+</pre>
+</p>
