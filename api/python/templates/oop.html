@@ -1,0 +1,628 @@
+ <p>
+                        Python has been an object-oriented language from day one. Because of this, creating and using classes and objects are downright easy.
+This chapter helps you become an expert in using Python's object-oriented programming support.
+
+<h4>What is an object?</h4>
+An object is an instance of a class. Now, that sentence is really short and very confusing. You will note that understanding what
+a class, and an instance are is essential to understanding the definition given.
+
+Getting this topic is very essential because creating your own classes is very important to maintaining your code, making your
+application easy to read and understand.
+<br/>
+	Understanding this concept in programming will help you organise and be able to reuse your own code over and over again. Reusing your code will in turn save you a lot of time while coding. One more thing, it will help you write concise and shorter codes.
+Creating Classes.
+You follow a particular syntax to create classes in every language, but the general idea is to
+create a blueprint or an outline of a pariticular module or class, define (def) it's various parts
+(functions or methods) and what in particular each of these functions or methods do.
+
+<h4>Declaring Objects.</h4>
+After creating your class, you will require an object, which can "wear" or "take up" the form, attributes and methods of the class, this is the way to make your blueprint useful.
+
+You might find the idea a bit daunting at first, you may be asking, "how do I put all of these together?"
+
+Let's look at classes this way; you are human (an object of the human class) and you have parts (functions or methods) and these parts  perform specific actions, and some, even multiple actions.
+Let's take the hand for an example and let's assume for the purpose of getting this idea clearly, that you only use the hand to throw a ball. This implies that anytime you want to use the hand, you will need a ball. Because..? Of course, because as we agreed earlier, the hand is for throwing a ball.
+
+<h4>Arguments/Parameters.</h4>
+
+We agreed that we needed a ball to use the hand. Do not get so lost in the analogy, the hand is a part of the human class, so the hand represents a function. Now, the name given to the ball is an argument or a parameter. Our function needs a ball (a parameter) in order to throw. So, any time you call this function, you need to supply it with a ball.
+You will do this in Python like this:
+<pre>
+# Create an object of the human class and name it
+Kofi =  Human()
+# Now call the function and supply it with a ball
+Kofi.hand('ball')
+</pre>
+<br/>
+<h4>Default arguments.</h4>
+
+Sometimes, during the creation of your class, you could provide a default argument to your function, so that whenever a user of your class calls that function without providing it with an argument, the function will go and pick up that default argument you provided to work with. Make this clear in your documentation so that the default behavior of your function will not be a surprise.
+Try this.
+<pre>
+# importing the sys class
+import sys
+print("Hello")
+sys.exit(0)
+</pre>
+<br/>
+Now try this:
+<pre>
+import sys
+print("hello")
+sys.exit()
+</pre>
+<br/>
+So the first time, you supplied an argument and it worked fine, the next, you did not, it still did work fine. That is because, the one who created this function called "exit" from the class sys, supplied it with a default argument which gets supplied to the function in case you did not provide any argument like in the second case.
+
+
+<h4>Always argue?</h4>
+
+However, you will agree with me that not every function (part) should require an argument to work. And yes, it is not every function that we create that should require an argument. So you can create a function like that, when it gets called, it just does something without requiring the user to supply anything. Can you think of any situation like that?
+Let's try this: If I said to you: "polish", you should definitely ask me for an argument, that is "what should I polish?", but if I said "jump", you sure can do that without any questions.
+Let's put this in code:
+<pre>
+# Let's define our function called polish
+# Which always needs an argument
+def polish(item):
+	print("polished ",item)
+</pre>
+<br/>
+So, calling this function without providing an argument (what to polish) should raise an error.
+Now, let's create one that does not require anything.
+<pre>
+# Creating a function that does not require argument.
+def jump():
+	print("Jumped")
+The above requires no argument at all, so providing one will raise an error.
+</pre>
+<br/>
+<div style="padding:8px;border-radius:20px;border:solid 2px steelblue;background-color:#82daad;"><h5 style="color:steelblue;">Take Note <i class="fa fa-pencil-square-o"></i></h5>
+A typical function should return a value, we use the keyword <b>return</b> to terminate a function.
+So, if it is a calculation, then the return will return the final answer of the calculation.
+print was used just to make things clearer.
+</div>
+Like this:
+<pre>
+def area_of_triangle(base,height):
+	answer = 0.5*base*height
+	return answer
+</pre>
+<br/>
+This is because, we typically do not print the value returned from a function but we use it for somthing else, we will like to leave that to whoever uses the function, whether the person would like to just print the "answer" to the console, pass it to another function, display it on a webpage or even pass it on to an artificial intelligence system, anything.
+
+
+<h4>Putting it all together</h4>
+
+Now, we can put all of these methods in one class, so when we create an object of that class, the object can perform all of these functions. So, we could define thousands of functions in one class and then create objects which will inherit these functions. You might already be guessing some powerful things you could use this ability for. It even gets much more exciting to know that there is the ability to inherit from other classes.
+So, a class can serve as a parent class to other classes who then become the child classes. the child classes "inherit" the abilities of their parent class. We will talk about inheritance later, for now, lets create our own classes, a human class.
+<pre>
+# Use the keyword class to begin and give it a name
+class Human:
+
+# We then initialise the class using __init__ method
+# This gets called whenever a user object is created
+
+	def __init__(self,Name="Kojo"):
+		self.name = Name
+
+	def get_name(self):
+		return self.name
+
+	def set_name(self,Name):
+		self.name = Name
+		return self.name
+
+	def polish(self,item):
+		value_added = "polished"
+		return item,value_added
+
+	def jump(self):
+		return self.name, "jumped"
+</pre>
+<br/>
+<pre>
+# Let's create an object of our class
+# Remember our __init__ requires two arguments:
+# Which are self (the object we created, so it's already supplied
+# And a Name
+Kofi = Human("Kofi")
+</pre>
+<br/>
+<pre>
+# Let's get the name of our object Kofi
+print(Kofi.get_name())
+>>>Kofi
+</pre>
+<br/>
+From our <code>__init__</code> method, we have provided a default Name for any object created, so if you created an object of our Human class without passing any Name, the get_name method will still return that default argument, whcih in this case is Kojo. But if you do provide a Name like in the above, then that Name will override the default Name(Kojo).
+<pre>
+Let's set a new name for our object Kofi
+print(Kofi.set_name("Adwoa))
+>>>Adwoa
+</pre>
+<br/>
+The self argument gets supplied to our method anytime we call the object so there's no need to supply it ourselves.
+
+The get method is used to get attributes of our object, in this case we wrote one that gets the Name of the object, there are in_built get methods, also the set methods are used to modify those attributes, we also wrote an example ourselves, which sets a new Name for our object.
+
+We then wrote two other methods, one is polish which takes an argument, particularly, the item to polish and returns a "polished" item.
+The other method is jump, which just makes the object jumps.
+
+So there, we have created our own class, provided our own getters and setters, and other methods.
+We also learnt how to create an object of our class and how to put that object in use.
+
+
+<h4>Can you think of other methods you could add?</h4>
+How about some other attributes apart from the Name?, like skin color, hair color...
+<br/>
+<b>FootNote: Some PEP8 rules were broken on purpose, this is to make codes clearer in our opinion and to make differentiating easier. In the case of the variable Naming, where we used "Name" instead of "name" is an
+example.</b>
+
+</p>
+<h4>Further Readings</h4>
+A class is an outline or a blueprint for creating an object. It is how an object will look like and how the various parts of that object
+will function. Imagine an outline for a car, not the car itself but the outline, the various parts that will  move to move
+the whole car. All of these parts must be pre-defined and theoretically tested before creating the real object which is the physical car.
+So, the physical car is a manifestation of the "plan" (outline).
+<br>
+Classes help hide data that should not be accessible to the user from the user (data abstraction).<br>
+Using the car example, you realise that while using a car, let's focus on driving and loading your stuff inside
+the car as it's only usage (well, is there another usage?), you are allowed by the company that made
+the car directly be able to control some parts of the car and even have a handbook on how to effectively control these parts.<br>
+However, some parts of the car are a bit restricted because you will mess things up if you were an allowed easy access.
+<br>
+This is exactly the concept that classes help you achieve and also allow you to group functions of the same entity together.
+If you are wondering what these functions could be just think of the car example again: the functions will include
+accelerate, so whenever the user calls accelerate, the car moves forward, reverse, break, steer right, steer left among others.
+<br>
+Basically, this is the idea, when you create a class of a car, then you have created a car with all its functions
+but the car remains invisible and unusable until an object which is a physical manifestation of that car class is created.
+The object assumes all the definitions of that class, and performs all the functions defined in the class suite.
+<br>
+
+When I say human, you definitely have an idea what a human looks like and the things that a human can do - that is the class.
+Now, you will agree that every human have their unique features and abilities even though they all belong to the same blueprint (The Human Class).
+<br/>
+In progrmming, this concept of every unique human being (object of the human class) having their own unique features is implemented by creating only one class
+but having as many objects of that class as possible and each object having their own unique features (class variables).<br>
+Inheriting features from an "older" class is allowed, just like you inherited some features from your Mum or Dad.
+<br/>
+
+<h4>Did you get the point?</h4>
+In beginning, I said an object is an instance of a class. do you get the point now?
+An object is an entity of a class, an object is the manifestation of a class.
+When I say this is a dog, you definitely have a blueprint or outline of a dog in your mind
+to agree or disagree with, so goes for any object, the object must have the features of it's class.
+
+<div style="padding:8px;border-radius:20px;border:solid 2px steelblue;background-color:#82daad;"><h5 style="color:steelblue;">Tip <i class="fa fa-pencil-square-o"></i></h5>
+    A dog must look like what dogs look like, and human like humans look like. In that sentence,
+    "a dog" is an object or an instance of the "dogs" class and "human" is an object
+    of the "humans" class.
+</div>
+<br>
+Now let's move on to some terminologies and their definitions before creating our own classes and objects.
+
+<h4>Overview of OOP Terminology</h4>
+<ul>
+    <li><b>Class:</b> A user-defined prototype for an object that defines a set of attributes that characterize any object of the class.
+        The attributes are data members (class variables and instance variables) and methods, accessed via dot notation.</li>
+
+    <li><b>Class variable:</b> A variable that is shared by all instances of a class. Class variables are defined within a class but outside any of the class's methods.
+    Class variables aren't used as frequently as instance variables are.</li>
+
+    <li><b>Data member:</b> A class variable or instance variable that holds data associated with a class and its objects.</li>
+
+    <li><b>Function overloading:</b> The assignment of more than one behavior to a particular function. The operation performed varies by the types of objects (arguments) involved.</li>
+
+    <li><b>Instance variable:</b> A variable that is defined inside a method and belongs only to the current instance of a class.</li>
+
+    <li><b>Inheritance :</b> The transfer of the characteristics of a class to other classes that are derived from it.</li>
+
+    <li><b>Instance:</b> An individual object of a certain class. An object obj that belongs to a class Circle, for example, is an instance of the class Circle.</li>
+
+    <li><b>Instantiation:</b> The creation of an instance of a class.</li>
+
+    <li><b>Method:</b> A special kind of function that is defined in a class definition.</li>
+
+    <li><b>Object:</b> A unique instance of a data structure that's defined by its class. An object comprises both data members (class variables and instance variables) and methods.</li>
+
+    <li><b>Operator overloading:</b> The assignment of more than one function to a particular operator.
+</li></ul>
+    <h4>Creating Classes</h4>
+The class statement creates a new class definition. The name of the class immediately follows the keyword class followed by a colon as follows:
+<pre>
+class ClassName:
+   'Optional class documentation string'
+   class_suite
+</pre>
+The class has a documentation string, which can be accessed via ClassName.__doc__.
+
+The class_suite consists of all the component statements defining class members, data attributes and functions.
+
+Example:
+Following is the example of a simple Python class:
+<pre>
+class Employee:
+    #This is the docstring
+   'Common base class for all employees'
+    # class variable
+   empCount = 0
+    # initialization method
+   def __init__(self, name, salary):
+      self.name = name
+      self.salary = salary
+      Employee.empCount += 1
+    #Other class methods
+   def displayCount(self):
+     print ("Total Employee %d" % Employee.empCount)
+
+   def displayEmployee(self):
+      print ("Name : ", self.name,  ", Salary: ", self.salary)
+</pre>
+The variable empCount is a class variable whose value would be shared among all instances of a this class. This can be accessed as
+    <code>Employee.empCount</code> from inside the class or outside the class.
+
+The first method <code>__init__()</code> is a special method, which is called class constructor or initialization method that Python calls when you create a new instance of this class.
+
+You declare other class methods like normal functions with the exception that the first argument to each method is self.
+    Python adds the self argument to the list for you; you don't need to include it when you call the methods.
+
+    <h4>Creating instance objects</h4>
+To create instances of a class, you call the class using class name and pass in whatever arguments its __init__ method accepts.
+<pre>
+#This would create first object of Employee class called Effie
+Effie = Employee("Effie", 6000)
+#This would create second object of Employee class called Ellie
+Ellie = Employee("Ellie", 4000)
+</pre>
+<br>
+So, those two objects (emp1 and emp2) belong to the same class called Employee and have their unique features which differentiates one from the other.
+We created only one class but we could create two objects from that same class without wirting a class for the second object all over
+again. If there were a thousand Employees, we could just create a thousand objects from the same class with thier own Names and Salaries.
+<br>
+<h4>Accessing attributes</h4>
+You access the object's attributes using the dot operator with object. Class variable would be accessed using class name as follows:
+<pre>
+Effie.displayEmployee()
+Ellie.displayEmployee()
+print ("Total Employee %d" % Employee.empCount)
+</pre>
+Now, putting all the concepts together:
+<pre>
+class Employee:
+   'Common base class for all employees'
+   empCount = 0
+
+   def __init__(self, name, salary):
+      self.name = name
+      self.salary = salary
+      Employee.empCount += 1
+
+   def displayCount(self):
+     print ("Total Employee %d" % Employee.empCount)
+
+   def displayEmployee(self):
+      print ("Name : ", self.name,  ", Salary: ", self.salary)
+
+#This would create first object of Employee class called emp1
+emp1 = Employee("Effie", 2000)
+#This would create second object of Employee class called emp2
+emp2 = Employee("Theo", 5000)
+emp1.displayEmployee()
+emp2.displayEmployee()
+print ("Total Employee %d" % Employee.empCount)
+When the above code is executed, it produces the following result:
+
+Name :  Effie ,Salary:  3000
+Name :  Theo ,Salary:  5000
+Total Employee 2
+    </pre>
+You can add, remove or modify attributes of classes and objects at any time:
+<pre>
+emp1.age = 7  # Add an 'age' attribute.
+emp1.age = 8  # Modify 'age' attribute.
+del emp1.age  # Delete 'age' attribute.
+</pre>
+Instead of using the normal statements to access attributes,you can use following functions:
+<pre>
+The getattr(obj, name[, default]) : to access the attribute of object.
+
+The hasattr(obj,name) : to check if an attribute exists or not.
+
+The setattr(obj,name,value) : to set an attribute.
+    If attribute does not exist, then it would be created.
+
+The delattr(obj, name) : to delete an attribute.
+
+hasattr(emp1, 'age')    # Returns true if 'age' attribute exists
+getattr(emp1, 'age')    # Returns value of 'age' attribute
+setattr(emp1, 'age', 8) # Set attribute 'age' at 8
+delattr(empl, 'age')    # Delete attribute 'age'
+    </pre>
+<h4>Built-In Class Attributes</h4>
+Every Python class keeps following built-in attributes and they can be accessed using dot operator like any other attribute:
+
+__dict__ : Dictionary containing the class's namespace.
+
+__doc__ : Class documentation string or None if undefined.
+
+__name__: Class name.
+
+__module__: Module name in which the class is defined. This attribute is "__main__" in interactive mode.
+
+__bases__ : A possibly empty tuple containing the base classes, in the order of their occurrence in the base class list.
+
+For the above class let's try to access all these attributes:
+
+<pre>
+class Employee:
+   'Common base class for all employees'
+   empCount = 0
+
+   def __init__(self, name, salary):
+      self.name = name
+      self.salary = salary
+      Employee.empCount += 1
+
+   def displayCount(self):
+     print "Total Employee %d" % Employee.empCount
+
+   def displayEmployee(self):
+      print "Name : ", self.name,  ", Salary: ", self.salary
+</pre>
+<br>
+<pre>
+print ("Employee.__doc__:", Employee.__doc__)
+print ("Employee.__name__:", Employee.__name__)
+print ("Employee.__module__:", Employee.__module__)
+print ("Employee.__bases__:", Employee.__bases__)
+print ("Employee.__dict__:", Employee.__dict__)
+    </pre>
+When the above code is executed, it produces the following result:
+<pre>
+Employee.__doc__: Common base class for all employees
+Employee.__name__: Employee
+Employee.__module__: __main__
+Employee.__bases__: ()
+Employee.__dict__: {'__module__': '__main__', 'displayCount':
+<function displayCount at 0xb7c84994>, 'empCount': 2,
+'displayEmployee': <function displayEmployee at 0xb7c8441c>,
+'__doc__': 'Common base class for all employees',
+'__init__': <function __init__ at 0xb7c846bc>}
+            </pre>
+<h4>Destroying Objects (Garbage Collection)</h4>
+Python deletes unneeded objects (built-in types or class instances) automatically to free memory space.
+The process by which Python periodically reclaims blocks of memory that no longer are in use is termed garbage collection.
+
+Python's garbage collector runs during program execution and is triggered when an object's reference count reaches zero. An object's reference count changes as the number of aliases that point to it changes.
+
+An object's reference count increases when it's assigned a new name or placed in a container (list, tuple or dictionary).
+The object's reference count decreases when it's deleted with del, its reference is reassigned, or its reference goes out of scope. When an object's reference count reaches zero, Python collects it automatically.
+<pre>
+a = 40      # Create object <40>
+b = a       # Increase ref. count  of <40>
+c = [b]     # Increase ref. count  of <40>
+
+del a       # Decrease ref. count  of <40>
+b = 100     # Decrease ref. count  of <40>
+c[0] = -1   # Decrease ref. count  of <40>
+    </pre>
+You normally won't notice when the garbage collector destroys an orphaned instance and reclaims its space.
+But a class can implement the special method <code>__del__()</code>, called a destructor, that is invoked when the instance is about to be destroyed. This method might be used to clean up any nonmemory resources used by an instance.
+
+Example:
+This <code>__del__()</code> destructor prints the class name of an instance that is about to be destroyed:
+<pre>
+class Point:
+   def __init( self, x=0, y=0):
+      self.x = x
+      self.y = y
+   def __del__(self):
+      class_name = self.__class__.__name__
+      print class_name, "destroyed"
+</pre>
+<br>
+<pre>
+pt1 = Point()
+pt2 = pt1
+pt3 = pt1
+print id(pt1), id(pt2), id(pt3) # prints the ids of the obejcts
+del pt1
+del pt2
+del pt3
+    </pre>
+When the above code is executed, it produces following result:
+<pre>
+3083401324 3083401324 3083401324
+Point destroyed
+    </pre>
+
+<div style="padding:8px;border-radius:20px;border:solid 2px steelblue;background-color:#82daad;"><h5 style="color:steelblue;">Tip <i class="fa fa-pencil-square-o"></i></h5>
+    Ideally, you should define your classes in separate file,
+    then you should import them in your main program file using import statement.
+    Kindly check <a href="http://learn.pythonanywhere.com/modules" style="color:blue;">PywE Modules chapter</a> for more details on importing modules and classes.</div>
+
+<h4>Class Inheritance</h4>
+Instead of starting from scratch, you can create a class by deriving it from a preexisting class by listing the parent class in parentheses after the new class name.
+
+The child class inherits the attributes of its parent class, and you can use those attributes
+as if they were defined in the child class. A child class can also override data members and methods from the parent.
+Just the way you would inherit the physical features of your parents and even their properties.
+
+<h4>Syntax</h4>
+Derived classes are declared much like their parent class; however, a list of base classes to inherit from are given after the class name:
+<pre>
+class SubClassName (ParentClass1[, ParentClass2, ...]):
+   'Optional class documentation string'
+   class_suite
+</pre>
+    Example:
+   <pre>
+class Parent:        # define parent class
+   parentAttr = 100
+   def __init__(self):
+      print ("Calling parent constructor")
+
+   def parentMethod(self):
+      print ('Calling parent method')
+
+   def setAttr(self, attr):
+      Parent.parentAttr = attr
+
+   def getAttr(self):
+      print "Parent attribute :", Parent.parentAttr
+
+class Child(Parent): # define child class
+   def __init__(self):
+      print ("Calling child constructor")
+
+   def childMethod(self):
+      print ('Calling child method')
+       </pre>
+<br>
+<pre>
+c = Child()          # instance of child
+c.childMethod()      # child calls its method
+c.parentMethod()     # calls parent's method
+c.setAttr(200)       # again call parent's method
+c.getAttr()          # again call parent's method
+    </pre>
+When the above code is executed, it produces the following result:
+<pre>
+Calling child constructor
+Calling child method
+Calling parent method
+Parent attribute : 200
+    </pre>
+Similar way, you can derive a class from multiple parent classes as follows:
+<pre>
+class A:        # define your class A
+.....
+
+class B:         # define your calss B
+.....
+
+class C(A, B):   # subclass of A and B
+.....
+    </pre>
+You can use <code>issubclass()</code> or <code>isinstance()</code> functions to check a relationships of two classes and instances.
+
+The <code>issubclass(sub, sup)</code> boolean function returns true if the given subclass sub is indeed a subclass of the superclass sup.
+
+The <code>isinstance(obj, Class)</code> boolean function returns true if obj is an instance of class Class or is an instance of a subclass of Class
+
+<h4>Overriding Methods</h4>
+You can always override your parent class methods. One reason for overriding parent's methods is because you may want special or different functionality in your subclass.
+
+Example:
+
+<pre>
+class Parent:        # define parent class
+   def myMethod(self):
+      print ('Calling parent method')
+
+class Child(Parent): # define child class
+   def myMethod(self):
+      print ('Calling child method')
+
+c = Child()          # instance of child
+c.myMethod()         # child calls overridden method
+    </pre>
+When the above code is executed, it produces the following result:
+<pre>
+Calling child method
+    </pre>
+<h4>Base Overloading Methods</h4>
+Following table lists some generic functionality that you can override in your own classes:
+<pre>
+SN	Method                               Description & Sample Call
+1	__init__ ( self [,args...] )
+                                        Constructor (with any optional arguments)
+                                        Sample Call : obj = className(args)
+2	__del__( self )
+                                        Destructor, deletes an object
+                                        Sample Call : del obj
+3	__repr__( self )
+                                        Evaluatable string representation
+                                        Sample Call : repr(obj)
+4	__str__( self )
+                                        Printable string representation
+                                        Sample Call : str(obj)
+5	__cmp__ ( self, x )
+                                        Object comparison
+                                        Sample Call : cmp(obj, x)
+</pre>
+<h4>Overloading Operators</h4>
+Suppose you've created a Vector class to represent two-dimensional vectors, what happens when you use the plus operator to add them? Most likely Python will yell at you.
+
+You could, however, define the __add__ method in your class to perform vector addition and then the plus operator would behave as per expectation:
+
+Example:
+<br>
+<pre>
+class Vector:
+   def __init__(self, a, b):
+      self.a = a
+      self.b = b
+
+   def __str__(self):
+      return ('Vector (%d, %d)' % (self.a, self.b))
+
+   def __add__(self,other):
+      return (Vector(self.a + other.a, self.b + other.b))
+</pre>
+<br>
+<pre>
+v1 = Vector(2,10)
+v2 = Vector(5,-2)
+print (v1 + v2)
+</pre>
+    When the above code is executed, it produces the following result:
+<pre>
+Vector(7,8)
+</pre>
+<h4>Data Hiding</h4>
+Remember we talked about hiding certain data from the user in order to prevent the user from messing up things?
+
+An object's attributes may or may not be visible outside the class definition.
+For these cases, you can name attributes with a double underscore prefix, and those attributes will not be directly visible to outsiders.
+
+Example:
+<pre>
+class JustCounter:
+   __secretCount = 0
+
+   def count(self):
+      self.__secretCount += 1
+      print (self.__secretCount)
+
+counter = JustCounter()
+counter.count()
+counter.count()
+print (counter.__secretCount)
+    </pre>
+<br>
+When the above code is executed, it produces the following result:
+<br>
+<pre>
+1
+2
+Traceback (most recent call last):
+  File "test.py", line 12, in <module>
+    print counter.__secretCount
+AttributeError: JustCounter instance has no attribute '__secretCount'
+</pre>
+<br>
+    Python protects those members by internally changing the name to include the class name. You can access such attributes as object._className__attrName.
+                If you would replace your last line as following, then it would work for you:
+
+.........................
+print (counter._JustCounter__secretCount)
+When the above code is executed, it produces the following result:
+<br>
+<pre>
+1
+2
+2
+</pre>
+</p>
