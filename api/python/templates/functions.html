@@ -1,0 +1,298 @@
+ <p>
+
+                        A function is a block of organized, reusable code that is used to perform a single, related action.
+Functions provide better modularity for your application and a high degree of code reusing.
+As you already know, Python gives you many built-in functions like print(), etc.
+but you can also create your own functions. These functions are called user-defined functions.
+<h4>Defining a Function</h4>
+You can define functions to provide the required functionality. Here are simple rules to define a function in Python.
+<ul>
+    <li>Function blocks begin with the keyword def followed by the function name and parentheses ( ( ) ).</li>
+    <li>Any input parameters or arguments should be placed within these parentheses. You can also define parameters inside these parentheses.</li>
+    <li>The first statement of a function can be an optional statement - the documentation string of the function or </li>
+    <li>The code block within every function starts with a colon (:) and is indented.</li>
+    <li>The statement return [expression] exits a function, optionally passing back an expression to the caller. A return statement with no arguments is the same as return None.</li>
+</ul>
+<h4>Syntax</h4>
+<pre>
+def functionname( parameters ):
+   "function_docstring"
+   function_suite
+   return [expression]
+    </pre>
+By default, parameters have a positional behavior and you need to inform them in the same order that they were defined.
+Example:
+Here is the simplest form of a Python function. This function takes a string as input parameter and prints it on standard screen.
+<pre>
+def printme( str ):
+   "This prints a passed string into this function"
+   print str
+   return
+    </pre>
+<h4>Calling a Function</h4>
+Defining a function only gives it a name, specifies the parameters that are to be included in the function and structures the blocks of code.
+Once the basic structure of a function is finalized, you can execute it by calling it from another function or directly from the Python prompt.
+Following is the example to call printme() function:
+
+<pre>
+# Function definition is here
+def printme( str ):
+   "This prints a passed string into this function"
+   print str
+   return
+</pre>
+<pre>
+# Now you can call printme function
+printme("I'm first call to user defined function!")
+printme("Again second call to the same function")
+    </pre>
+When the above code is executed, it produces the following result:
+<pre>
+I'm first call to user defined function!
+Again second call to the same function
+Pass by reference vs value
+    </pre>
+All parameters (arguments) in the Python language are passed by reference. It means if you change what a parameter refers to within a function,
+the change also reflects back in the calling function. For example:
+
+<pre>
+# Function definition is here
+def changeme( mylist ):
+   "This changes a passed list into this function"
+   mylist.append([1,2,3,4])
+   print ("Values inside the function: ", mylist)
+   return
+
+# Now you can call changeme function
+mylist = [10,20,30]
+changeme( mylist )
+print ("Values outside the function: ", mylist)
+    </pre>
+Here, we are maintaining reference of the passed object and appending values in the same object. So, this would produce the following result:
+<pre>
+Values inside the function:  [10, 20, 30, [1, 2, 3, 4]]
+Values outside the function:  [10, 20, 30, [1, 2, 3, 4]]
+    </pre>
+There is one more example where argument is being passed by reference and the reference is being overwritten inside the called function.
+
+<pre>
+# Function definition is here
+def changeme( mylist ):
+   "This changes a passed list into this function"
+   mylist = [1,2,3,4];  # This would assig new reference in mylist
+   print ("Values inside the function: ", mylist)
+   return
+
+# Now you can call changeme function
+mylist = [10,20,30]
+changeme( mylist )
+print ("Values outside the function: ", mylist)
+    </pre>
+The parameter mylist is local to the function changeme. Changing mylist within the function does not affect mylist.
+    The function accomplishes nothing and finally this would produce the following result:
+<pre>
+Values inside the function:  [1, 2, 3, 4]
+Values outside the function:  [10, 20, 30]
+    </pre>
+<h4>Function Arguments</h4>
+You can call a function by using the following types of formal arguments:
+<ul>
+    <li>Required arguments</li>
+    <li>Keyword arguments</li>
+    <li>Default arguments</li>
+    <li>Variable-length arguments</li>
+    </ul>
+<h4>Required arguments</h4>
+Required arguments are the arguments passed to a function in correct positional order.
+Here, the number of arguments in the function call should match exactly with the function definition.
+To call the function printme(), you definitely need to pass one argument, otherwise it would give a syntax error as follows:
+
+<pre>
+# Function definition is here
+def printme( str ):
+   "This prints a passed string into this function"
+   print str
+   return
+
+# Now you can call printme function
+printme();
+When the above code is executed, it produces the following result:
+Traceback (most recent call last):
+  File "test.py", line 11, in <module>
+    printme()
+TypeError: printme() takes exactly 1 argument (0 given)
+    </pre>
+<h4>Keyword arguments</h4>
+Keyword arguments are related to the function calls. When you use keyword arguments in a function call,
+the caller identifies the arguments by the parameter name.
+This allows you to skip arguments or place them out of order because the Python interpreter is able to use the keywords provided
+to match the values with parameters. You can also make keyword calls to the printme() function in the following ways:
+
+<pre>
+# Function definition is here
+def printme( str ):
+   "This prints a passed string into this function"
+   print (str)
+   return
+
+# Now you can call printme function
+printme( str = "My string");
+When the above code is executed, it produces the following result:
+My string
+    </pre>
+Following example gives more clear picture. Note, here order of the parameter does not matter.
+
+<pre>
+# Function definition is here
+def printinfo( name, age ):
+   "This prints a passed info into this function"
+   print ("Name: ", name)
+   print ("Age ", age)
+   return
+
+# Now you can call printinfo function
+printinfo( age=50, name="miki" )
+When the above code is executed, it produces the following result:
+Name:  miki
+Age  50
+    </pre>
+
+<h4>Default arguments</h4>
+A default argument is an argument that assumes a default value if a value is not provided in the function call for that argument.
+Following example gives an idea on default arguments, it would print default age if it is not passed:
+
+<pre>
+# Function definition is here
+def printinfo( name, age = 35 ):
+   "This prints a passed info into this function"
+   print ("Name: ", name)
+   print ("Age ", age)
+   return
+</pre>
+<pre>
+# Now you can call printinfo function
+printinfo( age=50, name="miki" );
+printinfo( name="miki" );
+When the above code is executed, it produces the following result:
+Name:  miki
+Age  50
+Name:  miki
+Age  35
+    </pre>
+<h4>Variable-length arguments</h4>
+You may need to process a function for more arguments than you specified while defining the function.
+These arguments are called variable-length arguments and are not named in the function definition, unlike required and default arguments.
+The general syntax for a function with non-keyword variable arguments is this:
+<pre>
+def functionname([formal_args,] *var_args_tuple ):
+   "function_docstring"
+   function_suite
+   return [expression]
+    </pre>
+An asterisk (*) is placed before the variable name that will hold the values of all nonkeyword variable arguments.
+This tuple remains empty if no additional arguments are specified during the function call. Following is a simple example:
+
+<pre>
+# Function definition is here
+def printinfo( arg1, *vartuple ):
+   "This prints a variable passed arguments"
+   print ("Output is: ",arg1)
+
+   for var in vartuple:
+      print (var)
+   return
+</pre>
+<pre>
+# Now you can call printinfo function
+printinfo( 10 )
+printinfo( 70, 60, 50 )
+    </pre>
+When the above code is executed, it produces the following result:
+<pre>
+Output is:
+10
+Output is:
+70
+60
+50
+    </pre>
+<h4>The Anonymous Functions (Lambda expressions)</h4>
+You can use the lambda keyword to create small anonymous functions. These functions are called anonymous because they are not declared in the standard manner by using the def keyword.
+<ul>
+    <li>Lambda forms can take any number of arguments but return just one value in the form of an expression. They cannot contain commands or multiple expressions.</li>
+    <li>An anonymous function cannot be a direct call to print because lambda requires an expression.</li>
+    <li>Lambda functions have their own local namespace and cannot access variables other than those in their parameter list and those in the global namespace.</li>
+<li>Although it appears that lambda's are a one-line version of a function, they are not equivalent to inline statements in C or C++,
+    whose purpose is by passing function stack allocation during invocation for performance reasons.</li>
+</ul>
+<h4>Syntax</h4>
+The syntax of lambda functions contains only a single statement, which is as follows:
+<pre>
+lambda [arg1 [,arg2,.....argn]]:expression</pre>
+Following is the example to show how lambdaform of function works:
+
+<pre>
+# Function definition is here
+sum = lambda arg1, arg2: arg1 + arg2
+ </pre>
+<pre>
+# Now you can call sum as a function
+print ("Value of total : ", sum( 10, 20 ))
+print ("Value of total : ", sum( 20, 20 ))
+When the above code is executed, it produces the following result:
+Value of total :  30
+Value of total :  40
+    </pre>
+<h4>The return Statement</h4>
+The statement return [expression] exits a function, optionally passing back an expression to the caller.
+A return statement with no arguments is the same as return None.
+All the above examples are not returning any value, but if you like you can return a value from a function as follows:
+
+<pre>
+# Function definition is here
+def sum( arg1, arg2 ):
+   # Add both the parameters and return them."
+   total = arg1 + arg2
+   print ("Inside the function : ", total)
+   return total;
+</pre>
+<pre>
+# Now you can call sum function
+total = sum( 10, 20 )
+print ("Outside the function : ", total)
+When the above code is executed, it produces the following result:
+Inside the function :  30
+Outside the function :  30
+    </pre>
+<h4>Scope of Variables</h4>
+All variables in a program may not be accessible at all locations in that program. This depends on where you have declared a variable.
+The scope of a variable determines the portion of the program where you can access a particular identifier. There are two basic scopes of variables in Python:
+<ul>
+    <li>Global variables</li>
+    <li>Local variables</li>
+    </ul>
+<h4>Global vs. Local variables</h4>
+Variables that are defined inside a function body have a local scope, and those defined outside have a global scope.
+This means that local variables can be accessed only inside the function in which they are declared,
+whereas global variables can be accessed throughout the program body by all functions. When you call a function,
+the variables declared inside it are brought into scope. Following is a simple example:
+
+<pre>
+total = 0; # This is global variable.
+# Function definition is here
+def sum( arg1, arg2 ):
+   # Add both the parameters and return them."
+   total = arg1 + arg2; # Here total is local variable.
+   print ("Inside the function local total : ", total)
+   return total
+</pre>
+<pre>
+# Now you can call sum function
+sum( 10, 20 )
+print ("Outside the function global total : ", total)
+When the above code is executed, it produces the following result:
+Inside the function local total :  30
+Outside the function global total :  0
+ </pre>
+
+</p>
